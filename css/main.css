@@ -1,0 +1,99 @@
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body {
+background-color: rgb(255, 255, 255);
+height: calc(100vh-80px);
+}
+
+
+.nav-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 2px, solid, rgb(106, 125, 83);
+   height: 80px;
+
+}
+.nav-element {
+   float: right;
+   
+   
+}
+.nav-element a {
+  display: block;
+  color: rgb(106, 125, 83);
+  text-align: center;
+  padding: 24px 16px;
+  text-decoration: none;
+  font-family: 'Roboto';
+  font-size: 1.6em;
+  font-weight: 200;
+  padding-right: 1.6em;
+}
+
+.logo {
+   color: rgb(106, 125, 83);
+   font-size: 1.6em;
+   font-family: 'Roboto';
+
+}
+.large-font {
+margin-right: 3em;
+text-align: left;
+font-size: 5em;
+font-family: 'Roboto', sans-serif;
+color: transparent;
+-webkit-text-stroke-width: 1px;
+-webkit-text-fill-color: transparent;
+-webkit-text-stroke-color: rgb(106, 125, 83);
+}
+.medium-font {
+font-size: 1.8em;
+font-family: 'Roboto', sans-serif;
+font-style: italic;
+font-weight: 200;
+color: rgb(106, 125, 83);
+line-height: 1.8em;
+
+}
+.main-container {
+margin: 9em;
+}
+.flex-container {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+.flex-container > div {
+   margin-bottom: 4em;
+}
+
+#dogs-container {
+   display: flex;
+   justify-content: space-around;
+   flex-direction: row;
+}
+.center-container {
+   text-align: center;
+   padding-bottom: 5em;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
