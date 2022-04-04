@@ -1,0 +1,115 @@
+*, *::before, *::after {
+   box-sizing: border-box;
+   font-family: 'Roboto';
+}
+:root {
+   --primary-colour:rgb(106, 125, 83); 
+   --background:rgba(255, 255, 255, 0);
+   --font-secondary:rgb(32, 32, 32);
+   --medium-font : 1.8em;
+   --large-font : 3em;
+   --Xlarge-font  : 5em;
+}
+
+#quiz-section {
+   display: flex;
+   width: 100vw;
+   /* height: 100vh; */
+   justify-content: center;
+   align-items: center;
+}
+.container {
+   width: 800px;
+   max-width: 80%;
+}
+/* 
+.btn:hover {
+   color: var(--primary-colour);
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-fill-color: var(--primary-colour);
+   -webkit-text-stroke-color: var(--primary-colour);
+} */
+
+#next-btn {
+   padding: 24px;
+   font-size: var(--medium-font);
+   border: 10px solid gray;
+
+
+}
+
+/* The container */
+.container-btn {
+   display: block;
+   position: relative;
+   padding-left: 155px;
+   margin-bottom: 50px;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+   margin-right: 3em;
+   text-align: left;
+   font-size: var(--medium-font);
+   color: transparent;
+   -webkit-text-stroke-width: 1px;
+   -webkit-text-fill-color: transparent;
+   -webkit-text-stroke-color: var(--primary-colour);
+}
+
+/* Hide the browser's default radio button */
+.container-btn input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 80px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container-btn:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container-btn input:checked ~ .checkmark {
+  background-color: var(--primary-colour);
+  
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container-btn input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container-btn .checkmark:after {
+	border-radius: 50%;
+   height: 80px;
+   width: 80px;
+   border: 10px solid rgb(68, 88, 44);
+}
+
+#question {
+   font-family: 'Roboto';
+   text-align: left;
+   font-size: 2em;
+   color: var(--primary-colour);
+}
