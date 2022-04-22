@@ -5,92 +5,56 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>What dog breed suit your lifestyle - Quiz</title>
+   <title>What dog breed suit your lifestyle - Index</title>
+   <link rel="stylesheet" href="../css/nav.css">
    <link rel="stylesheet" href="../css/main.css">
-   <link rel="stylesheet" href="../css/quiz.css">
-   <script defer src="../js/quiz.js"></script>
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,400&display=swap"
       rel="stylesheet">
+   <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,400&display=swap"
+      rel="stylesheet">
 </head>
 
-<body>
-   <main id="hero-container">
-      <nav>
+<body class="wrapper-container ">
+   <main>
+      <nav class="nav">
+         <span class="logo"><a href="./index.html">Happy Puppy</a></span>
          <ul class="nav-container">
-            <span class="logo">Happy Puppy</span>
-            <li class="nav-element"> <a href=""> Home</a></li>
-            <li class="nav-element"> <a href="">About</a></li>
-            <li class="nav-element"><a href="">Quiz</a></li>
+            <li class="nav-element"> <a href="./index.html#about">About</a></li>
+            <li class="nav-element"><a href="./quiz.html">Quiz</a></li>
          </ul>
       </nav>
 
-
-      <secton class="align-left">
-         <div class="large-font"> Match your parsonality with dog breed</div>
-         <div class="medium-font">Your task is to answer few simple question and find out what dog breed matches your
-            personality.</div>
+      <secton id="hero-container" class="height100">
+         <div class="heading1"> What dog breed suits your lifestyle?</div>
+         <div class="heading2">Answer few simple questions to find out.</div>
          </section>
          <section class="flex-center">
-            <div>About the quiz</div>
-            <i class="arrow down"></i>
          </section>
          <section id="dogs-container">
-            <img class="dog-1" src="../img/dog.png" alt="dog-1" height="200px">
-            <img class="dog-2" src="../img/dog(1).png" alt="dog-2" height="200px">
-            <img src="../img/dog(4).png" alt="dog-5 " height="200px">
-            <img src="../img/dog(2).png" alt="dog-3" height="200px">
-            <img src="../img/dog(3).png" alt="dog-4" height="200px">
+            <img class="dog-1" src="../img/dog.png" alt="dog-1">
+            <img class="dog-2" src="../img/dog(1).png" alt="dog-2">
+            <!-- <img src="../img/dog(2).png" alt="dog-3"> -->
+            <img src="../img/dog(3).png" alt="dog-4">
          </section>
    </main>
 
 
-   <section id="about-quiz" class="align-left">
+   <section class="height100 container quiz-container" id="about">
 
-      <div class="large-font">About the quiz</div>
-      <div class="medium-font">One afternoon I was chating to my friends and told them about my quiz course work, they
-         also love dogs and they gave me idea to create a better and more beautiful personality and dog breed quiz. <br>
-         This quiz has very simple set of 6 questions, when you complete the test you find out which dog breed from 6
-         ones matches your personality best. When you complete the test get insights about dog breed which might be you
-         future favourite best friend.
+      <div class="heading1">About the quiz</div>
+
+      <div class=" margin-sides about-info">
+      When you complete this quiz, you should know what kind of dog breeds match your lifestyle and if any. The more points you score the more dog breeds will appear on the screen.
       </div>
 
-   </section>
-
-   <section id="quiz-section" class="">
-
-      <div class="container question-wrapper">
-         <div id="question-container" class="hide">
-            <div id="question">Question</div>
-            <form id="answers-form" class="btn-grid" name="pet-form">
-               <input type="radio" id="answer-1" name="answer" value="0">
-               <label for="answer-1" class="container-btn">label text</label>
-               <!-- <span class="checkmark"></span> -->
-               <input type="radio" id="answer-2" name="answer" value="1">
-               <label for="answer-2" class="container-btn"></label>
-               <!-- <span class="checkmark"></span> -->
-               <input type="radio" id="answer-3" name="answer" value="2">
-               <label for="answer-3" class="container-btn"></label>
-               <!-- <span class="checkmark"></span> -->
-               <input type="radio" id="answer-4" name="answer" value="3">
-               <label for="answer-4" class="container-btn"> </label>
-               <!-- <span class="checkmark"></span> -->
-
-               <button id="pet-form" class="next-btn btn" type="submit">Next</button>
-
-            </form>
-         </div>
-      </div>
-   </section>
-
-   <!-- <section id="done" class="hidden"> -->
-   <section id="done">
-      Well done!
-      <div id="results">
-         here we will display the result
-      </div>
+      <a href="./quiz.html">
+         <button class="btn">Start the quiz</button>
+      </a>
    </section>
 </body>
+
 </html>

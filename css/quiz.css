@@ -1,115 +1,125 @@
 *, *::before, *::after {
    box-sizing: border-box;
-   font-family: 'Roboto';
+   font-family: 'Kanit';
 }
 :root {
-   --primary-colour:rgb(106, 125, 83); 
+   --primary-colour:rgb(76, 94, 54); 
    --background:rgba(255, 255, 255, 0);
-   --font-secondary:rgb(32, 32, 32);
-   --medium-font : 1.8em;
-   --large-font : 3em;
-   --Xlarge-font  : 5em;
+   --font:rgb(32, 32, 32);
+   --small-font: 1rem;
+   --medium-font : 2.5rem;
+   --large-font : 4rem;
+   --Xlarge-font  :5rem;
 }
 
-#quiz-section {
+#question-container {
    display: flex;
-   width: 100vw;
-   /* height: 100vh; */
-   justify-content: center;
+   justify-content: left;
+   flex-direction: column;
+   gap: 2em;
+} 
+
+.flex-center {
+   display: flex;
+   justify-content: flex-start;
+   gap: 2em;
    align-items: center;
 }
-.container {
-   width: 800px;
-   max-width: 80%;
+
+
+.next-btn  {
+   padding: 1rem 2rem;
+   font-size: var(--small-font);
+   border: 1px solid gray;
+   border-radius: 1rem;
+   margin-top: 2rem;
+   background-color: var(--primary-colour);
 }
-/* 
-.btn:hover {
-   color: var(--primary-colour);
-   -webkit-text-stroke-width: 1px;
-   -webkit-text-fill-color: var(--primary-colour);
-   -webkit-text-stroke-color: var(--primary-colour);
-} */
-
-#next-btn {
-   padding: 24px;
-   font-size: var(--medium-font);
-   border: 10px solid gray;
+.next-btn:hover {
+   background-color: rgb(107, 148, 107);
+   color: white;
+}
 
 
+#done {
+   display: flex;
+   justify-content:space-around;
+   align-items: left;
+   flex-direction: column;
+   font-family: 'Roboto';
+   font-weight: 200;
+   font-size: var(--small-font);
+}
+.result-paragraph {
+   font-size: 2rem;
+}
+
+#results {
+   align-items: center;
+   font-family: 'Roboto';
+   font-size: var(--font-secondary);
 }
 
 /* The container */
 .container-btn {
    display: block;
    position: relative;
-   padding-left: 155px;
-   margin-bottom: 50px;
    cursor: pointer;
    -webkit-user-select: none;
    -moz-user-select: none;
    -ms-user-select: none;
    user-select: none;
-   margin-right: 3em;
-   text-align: left;
    font-size: var(--medium-font);
-   color: transparent;
+   color: var(--background);
    -webkit-text-stroke-width: 1px;
-   -webkit-text-fill-color: transparent;
+   -webkit-text-fill-color: var(--background);
    -webkit-text-stroke-color: var(--primary-colour);
 }
 
-/* Hide the browser's default radio button */
-.container-btn input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+.background-image {
+   background-image: url(../img/Friends\ playing\ board\ game\ during\ lockdown.png);
+   background-size: 500px;
+   background-repeat: no-repeat;
+   background-color: rgb(250, 250, 250);
+   background-position: right;
 }
+
 
 /* Create a custom radio button */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 80px;
-  width: 80px;
-  background-color: #eee;
-  border-radius: 50%;
+input[type="radio"]{
+   -webkit-appearance: none;
+   appearance: none;
+   background-color: var(--background);
+   border: 2px solid var(--primary-colour);
+   margin: 0;
+   font: inherit;
+   width: 2rem;
+   height: 2rem;
+   border-radius: 50%;
+   transform: translateY(-0.075em);
 }
 
-/* On mouse-over, add a grey background color */
-.container-btn:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the radio button is checked, add a blue background */
-.container-btn input:checked ~ .checkmark {
-  background-color: var(--primary-colour);
-  
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
+input[type="radio"]::before {
   content: "";
-  position: absolute;
-  display: none;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 2em 2em var(--secondary-colour);
 }
 
-/* Show the indicator (dot/circle) when checked */
-.container-btn input:checked ~ .checkmark:after {
-  display: block;
+input[type="radio"]:checked::before {
+  transform: scale(1);
 }
 
-/* Style the indicator (dot/circle) */
-.container-btn .checkmark:after {
-	border-radius: 50%;
-   height: 80px;
-   width: 80px;
-   border: 10px solid rgb(68, 88, 44);
+input[type="radio"]:focus {
+  background: var(--primary-colour);
+   border: 8px solid var(--font-secondary);
 }
+
 
 #question {
-   font-family: 'Roboto';
-   text-align: left;
-   font-size: 2em;
-   color: var(--primary-colour);
+   font-size: var(--medium-font);
+   color: var(--font-secondary);
 }

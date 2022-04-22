@@ -1,0 +1,43 @@
+.nav {
+   display: flex;
+   justify-content: space-between;
+   padding: 1rem 0;
+   align-items: center;
+}
+
+.nav-container {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   padding: 1em;
+   font-family: 'Kanit';
+   display: flex;
+}
+
+
+.nav-element a {
+  color:var(--secondary-colour);
+  text-align: center;
+  padding: 1.5rem 1.5rem 1.5rem 1rem;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.nav-element:last-of-type a {
+ padding-right: 0;
+}
+
+.logo a {
+   color: var(--secondary-colour);
+   font-size: 1.4em;
+   text-decoration: none;
+}
+
+.nav-container a:hover {
+   color: blue;
+}
+
+.nav-container a:active {
+   color: #999;
+}

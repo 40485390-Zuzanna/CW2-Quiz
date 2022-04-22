@@ -9,7 +9,7 @@ const maxPoints = 15;
 const questions = [{
       key: "favourite_thing",
       question: "What is your absolute favourite thing to do??",
-      answers: ["Exploring new places", "Working on personal projects", "Partying and dancing", "Hiking and camping"]
+      answers: ["Night life", "Working on personal projects", "Travelling", "Hiking and camping"]
    },
    {
       key: "activity_level",
@@ -24,7 +24,7 @@ const questions = [{
    {
       key: "free_time",
       question: "How much free time do you have during the day to spend with your dog",
-      answers: ["Less than 1h", "1-2h", "2-3h", "I can spend all the free time I have with my dog"]
+      answers: ["Less than 1h", "1-2h", "2-3h", "24/7"]
    },
    {
       key: "snuggling",
@@ -33,42 +33,40 @@ const questions = [{
    },
 ]
 
-// const userAnswers = [];
-const userAnswers = [
-  {
-    "key": "favourite_thing",
-    "answer": "3"
-  },
-  {
-    "key": "day_off",
-    "answer": "2"
-  },
-  {
-    "key": "free_time",
-    "answer": "1"
-  },
-  {
-    "key": "snuggling",
-    "answer": "1"
-  }
-]
+const userAnswers = [];
+// const userAnswers = [{
+//       "key": "favourite_thing",
+//       "answer": "3"
+//    },
+//    {
+//       "key": "day_off",
+//       "answer": "2"
+//    },
+//    {
+//       "key": "free_time",
+//       "answer": "1"
+//    },
+//    {
+//       "key": "snuggling",
+//       "answer": "1"
+//    }
+// ]
 
-const breedsMap = [
-   {
+const breedsMap = [{
       group: "easy",
-      breeds: ["Basset", "Beagle"]
+      breeds: ["Labrador Retriever", "Beagle"]
    },
-    {
+   {
       group: "medium",
-      breeds: ["medium dog", "Beagle"]
+      breeds: ["Whippet", "Havanese"]
    },
-    {
+   {
       group: "intermediate",
-      breeds: ["intermediate hound", "Beagle"]
+      breeds: ["Border Collie", "Cocker Spaniel"]
    },
-    {
+   {
       group: "hard",
-      breeds: ["hard hound", "Beagle"]
+      breeds: ["Siberian Husky", "Afghan Hound"]
    }
 ]
 
@@ -76,32 +74,79 @@ const breedsMap = [
 const calculateTheAnswer = () => {
 
    let total = 0;
-   userAnswers.map((obj)=> total = total + Number(obj.answer));
+   userAnswers.map((obj) => total = total + Number(obj.answer));
 
-   total = 14;
+   // NOTE: REMOVE spretend score 
+   // total = 14;
+
    const results = document.querySelector("#results");
-   if (total < 4) {
+   if (total < 4 && total == 3) {
       results.innerHTML = "Don't get a dog you noob"
       return;
    }
 
    if (total < 7) {
-      results.innerHTML = breedsMap[0].breeds[0];
+      getBreedInfo(0);
       return;
    }
 
    if (total < 10) {
-      results.innerHTML = breedsMap[1].breeds[0];
+      getBreedInfo(1);
       return;
    }
 
    if (total < 13) {
-      results.innerHTML = breedsMap[2].breeds[0];
+      getBreedInfo(2);
       return;
    }
-   
-   results.innerHTML = breedsMap[3].breeds[0];
-   
+
+   // display the hardest breedss
+   getBreedInfo(3);
+
+
+}
+
+
+const callTheApi = async = () => {
+
+}
+
+const getBreedInfo = async (index) => {
+   // https://javascript.info/fetch
+
+   breedsMap[index].breeds.map(breed => {
+
+      console.log("fetch")
+      // call the api to get the info
+      const url = `https://api.thedogapi.com/v1/breeds/search?q=${breed}`;
+      fetch(url)
+         .then(response => response.json())
+         .then(breedInfo => displayInfo(breedInfo));
+         // .then(breedInfo => displayInfo(breedInfo));
+   });
+}
+
+// https://stackoverflow.com/questions/61984631/how-to-fetch-an-api-inside-a-map-function
+const createTemplate = ({ name, life_span, temperament }) => `
+<div class="dog-results-info-container">
+   <div class="dog-results-name">${name}</div>
+   <ul>
+      <li>temperament: ${temperament}</li>
+      <li>lifespan: ${life_span}</li>
+   </ul>
+
+</div>`
+
+const displayInfo = (breedInfo) => {
+
+   if (breedInfo.length) {
+      const results = document.querySelector("#results");
+      breedInfo.map(breed => {
+         console.log(breed.name)
+         const template = createTemplate(breed);
+         results.insertAdjacentHTML("afterend", template);
+      })
+   }
 }
 
 
@@ -115,10 +160,9 @@ form.addEventListener("submit", function (e) {
          answer
       })
    }
-   if(userAnswers.length === questions.length ) {
+   if (userAnswers.length === questions.length) {
       document.querySelector("#quiz-section").classList.add("hidden");
       document.querySelector("#done").classList.remove("hidden");
-      console.log(userAnswers);
       // later, we will call our function from here
       calculateTheAnswer();
 
