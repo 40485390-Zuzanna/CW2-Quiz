@@ -32,7 +32,7 @@ body {
 font-size: var(--large-font);
 font-family: 'Kanit';
 font-weight: 600;
-color: rgb(49, 49, 49);
+color: var(--secondary-colour);
 text-align: center;
 /* -webkit-text-stroke-width: 1px;
 -webkit-text-fill-color: white;
@@ -40,17 +40,14 @@ text-align: center;
 }
 
 .heading2{
-   font-size: var(--small-font);
-   text-align: left;
-
-}
-.about-info {
 font-family: 'Kanit';
-font-size: 2.5rem;
+font-size: var(--medium-font);
 color: var(--primary-colour);
 line-height: 3rem;
 font-weight: 100;
+
 }
+
 
 .height100{
    height: 100vh;
@@ -113,7 +110,7 @@ font-weight: 100;
   -webkit-transform: rotate(45deg);
 }
 
-.hidden {
+#done.hidden, #quiz-section.hidden {
 display: none;
 }
 

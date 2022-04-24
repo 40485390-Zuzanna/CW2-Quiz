@@ -6,7 +6,7 @@
    --primary-colour:rgb(76, 94, 54); 
    --background:rgba(255, 255, 255, 0);
    --font:rgb(32, 32, 32);
-   --small-font: 1rem;
+   --small-font: 1.5rem;
    --medium-font : 2.5rem;
    --large-font : 4rem;
    --Xlarge-font  :5rem;
@@ -55,9 +55,9 @@
 }
 
 #results {
-   align-items: center;
    font-family: 'Roboto';
    font-size: var(--font-secondary);
+   
 }
 
 /* The container */
@@ -76,11 +76,19 @@
    -webkit-text-stroke-color: var(--primary-colour);
 }
 
+.dog-results-info-container {
+   font-size: var(--small-font);
+   font-family: 'Roboto';
+}
+
+.dog-results-name {
+   font-size: var(--medium-font);
+}
+
 .background-image {
    background-image: url(../img/Friends\ playing\ board\ game\ during\ lockdown.png);
    background-size: 500px;
    background-repeat: no-repeat;
-   background-color: rgb(250, 250, 250);
    background-position: right;
 }
 
@@ -122,4 +130,23 @@ input[type="radio"]:focus {
 #question {
    font-size: var(--medium-font);
    color: var(--font-secondary);
+}
+
+@media screen and (max-width: 1300px) {
+   .background-image {
+      background-size: 300px;
+      background-repeat: no-repeat;
+      background-position: right;
+      background-image:url(../img/Delivery.png)
+   }
+}
+
+@media  screen and (max-width: 860px) {
+   .background-image {
+      background-image: none;
+   }
+   .container-btn {
+      font-size: var(--small-font);
+      gap: 0.5rem;
+   }
 }

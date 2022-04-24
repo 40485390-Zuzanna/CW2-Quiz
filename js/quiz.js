@@ -34,23 +34,7 @@ const questions = [{
 ]
 
 const userAnswers = [];
-// const userAnswers = [{
-//       "key": "favourite_thing",
-//       "answer": "3"
-//    },
-//    {
-//       "key": "day_off",
-//       "answer": "2"
-//    },
-//    {
-//       "key": "free_time",
-//       "answer": "1"
-//    },
-//    {
-//       "key": "snuggling",
-//       "answer": "1"
-//    }
-// ]
+
 
 const breedsMap = [{
       group: "easy",
@@ -62,7 +46,7 @@ const breedsMap = [{
    },
    {
       group: "intermediate",
-      breeds: ["Border Collie", "Cocker Spaniel"]
+      breeds: ["Border Collie", "English Cocker Spaniel"]
    },
    {
       group: "hard",
@@ -80,7 +64,7 @@ const calculateTheAnswer = () => {
    // total = 14;
 
    const results = document.querySelector("#results");
-   if (total < 4 && total == 3) {
+   if (total < 4) {
       results.innerHTML = "Don't get a dog you noob"
       return;
    }
@@ -103,20 +87,14 @@ const calculateTheAnswer = () => {
    // display the hardest breedss
    getBreedInfo(3);
 
-
 }
 
-
-const callTheApi = async = () => {
-
-}
 
 const getBreedInfo = async (index) => {
    // https://javascript.info/fetch
 
    breedsMap[index].breeds.map(breed => {
 
-      console.log("fetch")
       // call the api to get the info
       const url = `https://api.thedogapi.com/v1/breeds/search?q=${breed}`;
       fetch(url)
@@ -190,5 +168,4 @@ const populateQuestion = (index) => {
 
 document.addEventListener("DOMContentLoaded", function () {
    populateQuestion(0)
-   calculateTheAnswer();
 });
