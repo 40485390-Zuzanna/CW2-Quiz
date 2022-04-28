@@ -92,6 +92,10 @@
    background-position: right;
 }
 
+.displayImage {
+   display: flex;
+   background-color: red;
+}
 
 /* Create a custom radio button */
 input[type="radio"]{

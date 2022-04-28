@@ -6,9 +6,11 @@
 
 const maxPoints = 15;
 
+//An array of objects containing key,quesion, and answers
+
 const questions = [{
       key: "favourite_thing",
-      question: "What is your absolute favourite thing to do??",
+      question: "What is your absolute favourite thing to do?",
       answers: ["Night life", "Working on personal projects", "Travelling", "Hiking and camping"]
    },
    {
@@ -23,7 +25,7 @@ const questions = [{
    },
    {
       key: "free_time",
-      question: "How much free time do you have during the day to spend with your dog",
+      question: "How much free time do you have during the day to spend with your dog?",
       answers: ["Less than 1h", "1-2h", "2-3h", "24/7"]
    },
    {
@@ -33,9 +35,11 @@ const questions = [{
    },
 ]
 
+//An empty array to store answers
+
 const userAnswers = [];
 
-
+// An array of objects conttaining info about breeds
 const breedsMap = [{
       group: "easy",
       breeds: ["Labrador Retriever", "Beagle"]
@@ -54,6 +58,7 @@ const breedsMap = [{
    }
 ]
 
+//Function to calculate the answers
 
 const calculateTheAnswer = () => {
 
@@ -61,7 +66,8 @@ const calculateTheAnswer = () => {
    userAnswers.map((obj) => total = total + Number(obj.answer));
 
    // NOTE: REMOVE spretend score 
-   // total = 14;
+
+//If satement containing different results
 
    const results = document.querySelector("#results");
    if (total < 4) {
@@ -71,25 +77,30 @@ const calculateTheAnswer = () => {
 
    if (total < 7) {
       getBreedInfo(0);
+      
+
       return;
    }
 
    if (total < 10) {
       getBreedInfo(1);
+      
       return;
    }
 
    if (total < 13) {
       getBreedInfo(2);
+      
       return;
    }
 
-   // display the hardest breedss
+   // display the hardest breeds
    getBreedInfo(3);
+   
 
 }
 
-
+//Get breed
 const getBreedInfo = async (index) => {
    // https://javascript.info/fetch
 
@@ -97,24 +108,34 @@ const getBreedInfo = async (index) => {
 
       // call the api to get the info
       const url = `https://api.thedogapi.com/v1/breeds/search?q=${breed}`;
+      
+      
       fetch(url)
+      
+      
          .then(response => response.json())
          .then(breedInfo => displayInfo(breedInfo));
          // .then(breedInfo => displayInfo(breedInfo));
    });
 }
 
+
+
+
+
 // https://stackoverflow.com/questions/61984631/how-to-fetch-an-api-inside-a-map-function
-const createTemplate = ({ name, life_span, temperament }) => `
+const createTemplate = ({ name, life_span, temperament , image_id}) => `
 <div class="dog-results-info-container">
    <div class="dog-results-name">${name}</div>
    <ul>
       <li>temperament: ${temperament}</li>
       <li>lifespan: ${life_span}</li>
+      
    </ul>
 
 </div>`
 
+//Display info about breeds
 const displayInfo = (breedInfo) => {
 
    if (breedInfo.length) {
@@ -169,3 +190,6 @@ const populateQuestion = (index) => {
 document.addEventListener("DOMContentLoaded", function () {
    populateQuestion(0)
 });
+
+
+
