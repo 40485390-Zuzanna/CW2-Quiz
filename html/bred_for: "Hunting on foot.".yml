@@ -1,0 +1,24 @@
+bred_for: "Hunting on foot."
+​
+breed_group: "Hound"
+​
+height: Object { imperial: "13 - 15", metric: "33 - 38" }
+​
+id: 29
+​
+life_span: "10 - 14 years"
+​
+name: "Basset Bleu de Gascogne"
+​
+reference_image_id: "BkMQll94X"
+​
+temperament: "Affectionate, Lively, Agile, Curious, Happy, Active"
+​
+weight: Object { imperial: "35 - 40", metric: "16 - 18"}
+
+    breeds: [],
+    categories: [],
+    id: "d87",
+    url: "https://25.media.tumblr.com/tumblr_m4gjqmNI3m1qhwmnpo1_500.jpg"
+
+ 
